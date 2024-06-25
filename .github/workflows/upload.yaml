@@ -22,8 +22,10 @@ jobs:
 
     - name: Zip the lambda function
       run: |
-        zip lambda.zip lambda.py
+        zip lambda_hello.zip lambda_hello.py
+        zip scrapper_ec2.zip scrapper_ec2.py
 
     - name: Upload to S3
       run: |
-        aws s3 cp lambda.zip s3://lambda-upload0620/
+        aws s3 cp lambda_hello.zip s3://lambda-upload0620/
+        aws s3 cp scrapper_ec2.zip s3://lambda-upload0620/
